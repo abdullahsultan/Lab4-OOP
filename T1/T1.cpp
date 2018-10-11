@@ -12,11 +12,12 @@ public:
   }
 
   void nopaycar()
-  {cars++;loss++;}
+  {cars++;loss=loss+150.50;}
 
   void display()
   {cout<<"Total no of cars = "<<cars<<endl;
   cout<<"Total money = "<<money<<endl;
+  cout<<"Total loss = "<<loss<<endl;
   }
 
 private:
@@ -28,20 +29,21 @@ private:
 
 int main()
 {
-  ToolBooth cars();
+  ToolBooth car;
   char choice;
   while(true)
   {
     cout<<"Enter 'p' for paying car and 'n' for non-paying car \n and enter 'q' to showresult and quit \n";
     cin>>choice;
     if(choice=='p' || choice=='P')
-    cars.payingCar();
+    {car.payingCar();}
     else if(choice=='n' || choice=='N')
-    cars.nopaycar();
+    {car.nopaycar();}
     else if(choice=='q' || choice=='Q')
-    {cars.display();break;}
+    {car.display();break;}
     else
-    cout<<"Invalid choice \n";
+    {cout<<"Invalid choice \n";}
 
   }
+  return 0;
 }
