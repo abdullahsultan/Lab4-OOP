@@ -5,53 +5,51 @@ using namespace std;
 class stack
 {
   public:
-    stack(int size)
-    {x=size;counter=0;}
+    stack()
+    {counter=0;}
 
     void push_item(string item)
     {if(counter<x)
-      my_array[counter]=item; counter++;
+      my_array[counter]=item; counter++;cout<<endl<<"Counter = "<<counter<<endl;
     }
     void pop_item()
-    {if(counter>0)
+    {if(counter>=0)
       counter--;}
 
     bool empty()
-    {if(counter==0)
+    {if(counter==9)
     return true;
-    else
+    if (counter==0)
     return false;}
 
     string top()
-    {return my_array[counter];}
+    {return my_array[counter-1];}
 
   private:
-    int x;
-    T my_array[x];
+    int x=10;
+    string my_array[10];
     int counter;
 };
 
 int main()
 {
-  int size;char choice;string item;
-  cout<<"Enter size of stack \n";
-  cin>>size;
-  my_stack(size);
+  char choice;string item;
+  stack my_stack;
   while (true) {
     cout<<"Enter 'a' to add item 'r' to remove item \n";
-    choice=getch();
+    cin>>choice;
     if(choice=='a' || choice=='A')
     {cin>>item;
-    my_stack.push_item(item); cout<<endl<<endl<<".............\n \n"<<my_stack.top()<<endl<<endl;}
+    my_stack.push_item(item); cout<<endl<<endl<<".............\n \n"<<"Last thing you added was: "<<my_stack.top()<<endl<<endl;}
     else if(choice=='r' || choice=='R')
     my_stack.pop_item();
     else
     cout<<"Invalid choice \n";
 
     if(my_stack.empty()==true)
-    cout<<"No Space available \n";
-    else
-    cout<<"No Space available \n";
+    cout<<"Stack is full  \n";
+    if (my_stack.empty()==false)
+    cout<<"Empty \n";
   }
 
 }
